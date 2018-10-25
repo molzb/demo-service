@@ -1,0 +1,27 @@
+.team {
+	border: 1px solid gray;
+	background: #eeeeee;
+}
+
+.subteam {
+	padding-left: 20px;
+}
+
+#reptiles {
+	color: green;
+	background: yellow;
+}
+
+#army {
+	color: white;
+	background: black;
+}
+
+#scrumbledReptiles {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+p {
+	font-size: 16px;
+}

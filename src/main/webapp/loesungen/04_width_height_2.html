@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		div { border-radius: 4px; border: 1px solid gray; padding: 5px; margin: 5px; }
+		.notresponsive { width: 45%; float: left; border: 1px solid gray; }
+		@media screen and (min-width: 640px) {
+			.responsive { width: 45%; float: left; border: 1px solid gray; }
+		}
+		@media screen and (min-width: 1280px) {
+			.responsive { width: 90%; float: left; border: 1px solid gray; }
+		}
+	</style>
+</head>
+<body>
+	<h1>This is Syniverse!</h1>
+	<div class="notresponsive">Nicht responsiv1</div>
+	<div class="notresponsive">Nicht responsiv1</div>
+	<div class="notresponsive">Nicht responsiv1</div>
+	<br/><br/><br/><br/><br/><br/>
+
+	<div class="responsive">Responsiv1</div>
+	<div class="responsive">Responsiv2</div>
+	<div class="responsive">Responsiv3</div>
+
+</body>
+</html>
+
+<!-- TODO 1: DIVs notresponsive auf Breite 45%, links ausrichten -->
+<!-- TODO 2: DIVs responsive auf -->
+<!--			Breite 90% (1-spaltig) ab 1280px, links ausrichten -->
+<!--			Breite 45% (2-spaltig) ab  640px, links ausrichten -->

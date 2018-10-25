@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MDM Countries</title>
+	
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/toastr.min.js"></script>
+	<script type="text/javascript" src="js/mdmCountries.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="css/toastr.min.css"/>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+<body ng-app="DemoApp">
+	<div ng-controller="CountryController" class="container">
+		<h1>MDM Countries</h1>
+
+		<div ng-if="isLoading != ''">
+			{{isLoading}} <i class="fa fa-spinner fa-spin" style="font-size: 24px"></i>
+		</div>
+		<div class="panel panel-default">
+			<div id="divCountries" class="panel-body" ng-if="isLoading == ''">
+				<button id="btnAddCountry" class="btn btn-primary" ng-click="setToAdd()" data-toggle="modal" data-target="#modalCountry">
+					Add country
+				</button>
+				<br /> <br />
+				<button class="btn btn-default" onclick="alert('Hausaufgabe!')">Export</button>
+				<br /> <br />
+				<div class="form-inline">
+					<input id="txtSearch" type="text" class="pull-right form-control" placeholder="Search for ID or name, e.g. DEU" 
+						ng-model="searchTerm" style="margin-bottom: 10px"/>
+				</div>
+				<table id="tblCountries" class="table table-hover table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>ID<a href="#" class="glyphicon glyphicon-sort pull-right" ng-click="sort('id')"></a></th>
+							<th>Name<a href="#" class="glyphicon glyphicon-sort pull-right" ng-click="sort('name')"></a></th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="c in countries | orderBy:sortCol:sortReverse | filter:searchTerm as filteredCountries">
+							<td>{{c.id}}</td>
+							<td>{{c.name}}</td>
+							<td>
+								<a href="#" ng-click="setEditedCountry(c)" data-toggle="modal" data-target="#modalCountry">Edit</a> | 
+								<a href="#" ng-click="deleteCountry(c)">Delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+				Showing <span id="numberOfRows">{{filteredCountries.length}}</span> entries<br/>
+			</div>
+		</div>
+
+		<div class="modal fade" id="modalCountry" role="dialog">
+			<div class="modal-dialog">
+				<form name="frmAddCountry">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">{{addOrEdit == 'add' ? 'Add' : 'Edit'}} country</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="mdmCoutryId">Country ID:</label>
+								<input type="text" id="mdmCoutryId" name="mdmCoutryId" class="form-control" ng-model="selectedCountry.id" placeholder="e.g. DEU"
+									ng-required max="3">
+							</div>
+							<div class="form-group">
+								<label for="mdmCoutryName">Country Name:</label>
+								<input type="text" id="mdmCoutryName" name="mdmCoutryName" class="form-control" ng-model="selectedCountry.name"
+									placeholder="e.g. Germany" ng-required>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button id="btnAdd"   type="submit" class="btn btn-primary pull-left" data-dismiss="modal" ng-click="addOrEditCountry(addOrEdit)">{{addOrEdit == 'add' ? 'Add' : 'Edit'}} country</button>
+							<button id="btnClose" type="button" class="btn btn-default" data-dismiss="modal" ng-disabled="frmAddCountry.$invalid">Close</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

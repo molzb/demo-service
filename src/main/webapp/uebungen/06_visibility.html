@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.panel { display: block; border: 1px solid gray; padding: 5px; border-radius: 4px; }
+		/* TODO */
+	</style>
+</head>
+<body>
+	<div id="hiddenPortal" class="hidden">Hinfort!</div>
+	<div id="portal" class="panel">
+		<div id="roaming_agreements">
+			<h1>Roaming Agreements</h1>
+			<button class="btn btn-primary">Ok</button>
+			<button class="btn btn-default">Cancel</button>
+			<button class="btn btn-success">Success</button>
+		</div>
+		<hr/>
+		<div id="dch_rejections">
+			<h1>DCH Rejections</h1>
+			<button class="btn btn-primary">Ok</button>
+			<button class="btn btn-default">Wo bin ich?</button>
+			<button class="btn btn-success">Success</button>
+		</div>
+		<hr/>
+		<div id="tariff_tracker">
+			<h1>Tariff Tracker</h1>
+			<button class="btn btn-primary">Ok</button>
+			<button class="btn btn-default" marker="true">Ganz weg</button>
+			<button class="btn btn-success">Success</button>
+		</div>
+	</div>
+</body>
+</html>
+
+<!-- TODO: Sichtbarkeit -->
+<!--       1) #hiddenPortal mit einer neuen CSS-Klasse "hidden" verstecken -->
+<!--       2) .panel anzeigen, aber .btn-default für "Roaming Agreements" verstecken -->
+<!-- 				 Guten mehrstufigen Selektor verwenden, z.B. #id .class1 .class2 .class3 { ... }			      
+<!--       3) .btn-primary in "DCH Rejections" verstecken, der soll aber trotzdem Platz beanspruchen -->
+<!-- 				 Zweiten möglichen Selektor verwenden -->
+<!-- 	   4) Button mit dem Attribut marker verstecken per CSS-Selektor mit Attribut -->

@@ -1,0 +1,38 @@
+[
+	{
+		"id": "mock_Systest_dch_deud1",
+		"organization": "06174",
+		"givenName": "MOCK1",
+		"familyName": "Systest_dch",
+		"email": "mock.mock@syniverse.com",
+		"active": true,
+		"accountDisabled": false
+	},
+	{
+		"id": "MPaciu",
+		"organization": "06174",
+		"givenName": "Mircea",
+		"familyName": "Paciu",
+		"email": "Mircea.Paciu@syniverse.com",
+		"active": true,
+		"accountDisabled": false
+	},
+	{
+		"id": "Systest_dch_o_deud1",
+		"organization": "06174",
+		"givenName": "DEUD1",
+		"familyName": "Systest_DCH_only",
+		"email": null,
+		"active": true,
+		"accountDisabled": false
+	},
+	{
+		"id": "mock_GMBH",
+		"organization": "06174",
+		"givenName": "Telekom",
+		"familyName": "Telekom",
+		"email": "Reinhard.Deschler@syniverse.com",
+		"active": true,
+		"accountDisabled": false
+	}
+]

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Die Wahl</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style type="text/css">
+    .barchart { position: absolute; margin: auto; height: 80%; width: 80%; border: 1px solid gray; }
+	.hidden { display: none; }
+  </style>
+</head>
+<body>
+	<div class="container">
+	  <h2>Wahlprognose</h2>
+	  <div class="barchart">
+		<div class="bar cdu"  onmouseenter="$('.middle').removeClass('hidden')" onmouseleave="$('.middle').addClass('hidden')">CDU</div>
+		<div class="bar gruene" onmouseenter="$('.left').removeClass('hidden')" onmouseleave="$('.left').addClass('hidden')">Grüne</div>
+		<div class="bar afd"   onmouseenter="$('.right').removeClass('hidden')" onmouseleave="$('.right').addClass('hidden')">AFD</div>
+	  </div>
+	  <div class="left hidden">Blabla: Die linken Parteien</div>
+	  <div class="middle hidden">Blabla: Die Mitte</div>
+	  <div class="right hidden">Blabla: Die rechten Parteien</div>
+	</div>
+</body>
+</html>
+
+<!-- TODO1: .barchart und .bar auf absolute Positionierung setzen -->
+<!-- TODO2: .cdu, .gruene und .afd: auf einen beliebigen Prozentwert setzen, z.B. 60%, 30%, 30%  -->
+<!-- 		.cdu, .gruene und .afd: links ausrichten per left, z.B. left: 10%  -->
+<!-- 		.cdu, .gruene und .afd: Hintergrund-Farben auf Schwarz, Grün, Blau -->
+<!-- TODO3: Bei einem Hover (=mouseover) über der Bar etwas aufhellen per opacity (z.B. opacity: 0.5;) -->
+<!-- TODO4: Den Text "Blabla..." verbergen, dazu eine CSS-Klasse .hidden verwenden -->
+<!-- TODO5: Im DIV-Tag für .cdu, .gruene, .afd das hinzufügen: -->
+<!-- 			onmouseenter="$('.left').removeClass('hidden')" onmouseleave="$('.middle').addClass('hidden')" -->
+<!-- 			onmouseenter="$('.middle').removeClass('hidden')" onmouseleave="$('.middle').addClass('hidden')" -->
+<!-- 			onmouseenter="$('.right').removeClass('hidden')" onmouseleave="$('.middle').addClass('hidden')" -->
