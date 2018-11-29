@@ -15,7 +15,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.4.RELEASE</version>
+		<version>2.0.6.RELEASE</version>
 		<relativePath />
 	</parent>
 
@@ -102,6 +102,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.7.1</version><!--$NO-MVN-MAN-VER$-->
+			</plugin>
+
 			<!-- TODO mvn verify should run tests in src/it/java -->
 			<!-- TODO mvn test should run tests in src/test/java -->
 			<plugin>
