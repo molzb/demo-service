@@ -53,7 +53,6 @@ public class RemoteWebserviceCallTest {
 				.andRespond(withSuccess(tariffJsonContent, APPLICATION_JSON_UTF8));
 
 		List<Tariff> tariffObjects = wsCall.getTariffObjectsFromRemoteServer("h", "v");
-		System.out.println(tariffObjects);
 		Tariff firstTariff = tariffObjects.get(0);
 		assertTrue("Calling the WS of a remote server should return some Tariff objects",
 				tariffObjects != null && !tariffObjects.isEmpty());
@@ -69,7 +68,6 @@ public class RemoteWebserviceCallTest {
 				.andRespond(withSuccess(tariffJsonContent, APPLICATION_JSON_UTF8));
 
 		List<Tariff> tariffObjects = wsCall.getTariffsEntityFromRemoteServer("h", "v");
-		System.out.println(tariffObjects);
 		assertTrue("Calling the WS of a remote server should return some Tariff objects",
 				tariffObjects != null && !tariffObjects.isEmpty());
 		assertEquals("There should be 44 Tariff objects. ", 44, tariffObjects.size());
@@ -81,7 +79,6 @@ public class RemoteWebserviceCallTest {
 				.andRespond(withSuccess(userJsonContent, APPLICATION_JSON_UTF8));
 
 		List<UserData> userData = wsCall.getUserDataFromSecuredServer(pmn);
-		System.out.println(userData);
 		assertTrue("Calling the WS of the user-service should return some objects", userData != null && !userData.isEmpty());
 	}
 }
