@@ -100,6 +100,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
+		
+		<!-- JMS START -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-broker</artifactId>
+		</dependency>
+		<!-- JMS END -->
 
 		<!-- CAMEL START -->
 		<dependency>
@@ -116,6 +127,7 @@
 		</dependency>
 		<!-- CAMEL END -->
 
+		<!-- Testing START -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -142,6 +154,7 @@
 			<artifactId>selenium-ie-driver</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Testing END -->
 	</dependencies>
 
 	<build>
