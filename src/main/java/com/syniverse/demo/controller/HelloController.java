@@ -46,6 +46,13 @@ public class HelloController {
 	public String getDate(@PathVariable long date) {
 		return "A dummy file with a date: " + new Date(date).toString();
 	}
+	
+	@GetMapping("sometimesThisWorks")
+	public String dateOrDie() {
+		if (Math.random() > 0.5)
+			return new Date().toString();
+		throw new RuntimeException("Sometimes it fails");
+	}
 
 	/**
 	 * Parses a tap file name and splits it into its tokens
