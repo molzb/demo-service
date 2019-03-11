@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="additional.xml"/>
+	<bean id="stringInBeansXml" class="java.lang.String">
+		<constructor-arg type="java.lang.String" value="I'm in applicationContext.xml" />
+	</bean>
+	<bean id="canWeUseBothXmlAndProperties" class="java.lang.String">
+		<constructor-arg type="java.lang.String" value="Yes" />
+	</bean>
+	<bean id="qualifierDemo" class="java.lang.String">
+		<constructor-arg type="java.lang.String" value="Here we need a qualifier" />
+	</bean>
+	<bean id="xmasPoint" class="java.awt.Point">
+		<constructor-arg type="int" value="24" />
+		<constructor-arg type="int" value="12" />
+	</bean>
+	<bean id="xmasButton" class="java.awt.Button">
+		<property name="location" ref="xmasPoint"/>
+	</bean>
+	<alias name="xmasButton" alias="xmasButtonAlias"/>
+</beans>
