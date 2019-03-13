@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @PropertySource(value="classpath:additional.properties")
-public class ConfigPropsComponent {
+public class ConfigAdditionalProperties {
 	@Autowired
 	@Qualifier("appname")
 	private String appname;

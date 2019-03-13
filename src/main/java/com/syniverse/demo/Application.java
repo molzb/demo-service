@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 
-import com.syniverse.demo.config.ConfigPropsDemo;
+import com.syniverse.demo.config.ConfigWithPrefixInfoApp;
 
 @SpringBootApplication
-@Import(ConfigPropsDemo.class)
+@Import(ConfigWithPrefixInfoApp.class)
 @EnableAspectJAutoProxy
 public class Application {
 	public static void main(String[] args) {

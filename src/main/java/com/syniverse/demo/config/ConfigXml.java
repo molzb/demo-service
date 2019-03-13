@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 @Configuration
 @ImportResource({"classpath:applicationContext.xml"})
 @Component
-public class ConfigXmlDemo {
-	ConfigXmlDemo() {
+public class ConfigXml {
+	ConfigXml() {
 		System.setProperty("java.awt.headless", "false");	// Button crashes, if I don't do that
 	}
 	

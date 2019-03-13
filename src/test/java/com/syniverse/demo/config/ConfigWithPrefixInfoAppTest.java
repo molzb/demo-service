@@ -10,14 +10,14 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.syniverse.demo.Application;
-import com.syniverse.demo.config.ConfigPropsDemo;
+import com.syniverse.demo.config.ConfigWithPrefixInfoApp;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 @TestPropertySource("classpath:/application-test.properties")
-public class ConfigPropsDemoTest {
+public class ConfigWithPrefixInfoAppTest {
 	@Autowired
-	ConfigPropsDemo cfg;
+	ConfigWithPrefixInfoApp cfg;
 	
 	@Test
 	public void testConfigurationProperties() {

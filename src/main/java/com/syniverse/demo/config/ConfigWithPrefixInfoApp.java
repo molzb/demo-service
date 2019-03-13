@@ -17,7 +17,7 @@ import lombok.Setter;
 @ConfigurationProperties(prefix="info.app")
 @Getter
 @Setter
-public class ConfigPropsDemo {
+public class ConfigWithPrefixInfoApp {
 	private String name;
 	private String description;
 	private String version;
