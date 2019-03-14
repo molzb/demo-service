@@ -22,7 +22,7 @@ public class FileController {
 	@GetMapping(value = "raex", produces = MediaType.APPLICATION_XML_VALUE)
 	public String getRaex() {
 		String userHome = System.getProperty("user.home");
-		String f = userHome + "\\eclipse-workspace\\demo-service\\raexIot.xml";
+		String f = userHome + "\\eclipse-workspace\\demo-service\\src\\main\\resources\\raexIot.xml";
 		String xmlContent = utils.loadFile(f);
 		return xmlContent; // XML.toJSONObject(xmlContent).toString(2);
 	}
@@ -30,7 +30,7 @@ public class FileController {
 	@GetMapping(value = "raexAsJson", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public String getRaexAsJson() {
 		String userHome = System.getProperty("user.home");
-		String f = userHome + "\\eclipse-workspace\\demo-service\\raexIot.xml";
+		String f = userHome + "\\eclipse-workspace\\demo-service\\src\\main\\resources\\raexIot.xml";
 		String xmlContent = utils.loadFile(f);
 		return XML.toJSONObject(xmlContent).toString(2);
 	}
