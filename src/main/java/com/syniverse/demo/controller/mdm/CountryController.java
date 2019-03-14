@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,8 +32,12 @@ public class CountryController {
 	@Autowired
 	private HttpServletResponse response;
 	
+	@Autowired
+	HttpSession session;
+	
 	@GetMapping("/countries")
 	public List<Country> getCountries() {
+		System.out.println("session creation time: " + session.getCreationTime());
 		String sql = "SELECT mdm_country_id, name FROM mdm_countrytbl";
 		return jdbcTpl.query(sql, (ResultSet rs, int rowNum) -> new Country(rs.getString(1), rs.getString(2)));
 	}
