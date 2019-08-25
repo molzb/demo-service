@@ -2,6 +2,9 @@ package com.syniverse.demo.controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.timeout;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
@@ -29,17 +32,20 @@ public class FileControllerTest {
 	public void testGetRaex() {
 		when(utils.loadFile(anyString())).thenReturn(xml);
 		assertEquals(xml, ctrl.getRaex());
+		verify(utils, atLeastOnce()).loadFile(anyString());
+		verify(utils, timeout(100)).loadFile(anyString());
 	}
 
 	@Test
-	public void testGetRaexAsJson() {
-		String expectedJson = "{\"raex\": {\"Header\": {\"Submission\": \"1999-09-09\"}}}";
+	public void testGetRaexAsJson() throws IOException {
+		String expectedJson = "{\"Header\":{\"Submission\":\"1999-09-09\"}}";
 		when(utils.loadFile(anyString())).thenReturn(xml);
 		assertEquals(expectedJson, ctrl.getRaexAsJson());
 	}
 
 	@Test
 	public void testGetPdf() throws IOException {
-		assertEquals(48672, ctrl.getPdf().length);
+		int expectedPdfLength = 48672;
+		assertEquals(expectedPdfLength, ctrl.getPdf().length);
 	}
 }

@@ -8,6 +8,10 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.expression.ParseException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,14 +21,39 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 	private DateFormat df = new SimpleDateFormat("HH:mm:ss");
 
+	@Value("${server.port}")
+	private int serverPort;
+
+	@Value("${management.server.port}")
+	private int managementPort;
+
+	@Autowired
+	HttpServletRequest req;
+
 	@GetMapping(value = "/", produces = TEXT_PLAIN_VALUE)
 	public String showRoot() {
 		return "Service is up and running";
 	}
 
+	@GetMapping(value = "/", produces = TEXT_PLAIN_VALUE, params = "debug=true")
+	public String showRootOnPort() {
+		String tpl = "Service is up and running on %s:%d, Management Port on %d";
+		return String.format(tpl, req.getServerName(), serverPort, managementPort);
+	}
+
+	@GetMapping(value = "header", produces = TEXT_PLAIN_VALUE, headers = "hello=world")
+	public String cannotBeEmbeddedOnAnotherPage() {
+		return "Can be called with 'curl -H \"hello:world\" http://localhost:8888/header'";
+	}
+
 	@GetMapping("date")
 	public String getDateAsHHmmss() {
 		return df.format(new Date());
+	}
+
+	@GetMapping("add/{s1:[\\d]+}/{s2:[\\d]+}")
+	public Long add(@PathVariable Long s1, @PathVariable Long s2) {
+		return s1 + s2;
 	}
 
 	@GetMapping(value = "hello", produces = TEXT_PLAIN_VALUE)
@@ -46,7 +75,7 @@ public class HelloController {
 	public String getDate(@PathVariable long date) {
 		return "A dummy file with a date: " + new Date(date).toString();
 	}
-	
+
 	@GetMapping("sometimesThisWorks")
 	public String dateOrDie() {
 		if (Math.random() > 0.5)
