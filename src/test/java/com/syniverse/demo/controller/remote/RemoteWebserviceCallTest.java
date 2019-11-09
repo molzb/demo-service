@@ -3,7 +3,7 @@ package com.syniverse.demo.controller.remote;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
@@ -50,7 +50,7 @@ public class RemoteWebserviceCallTest {
 	@Test
 	public void testGetTariffObjectsFromRemoteServer() throws URISyntaxException, JsonParseException, IOException {
 		mockServer.expect(requestTo(tariffJsonUrl)).andExpect(method(GET))
-				.andRespond(withSuccess(tariffJsonContent, APPLICATION_JSON_UTF8));
+				.andRespond(withSuccess(tariffJsonContent, APPLICATION_JSON));
 
 		List<Tariff> tariffObjects = wsCall.getTariffObjectsFromRemoteServer("h", "v");
 		Tariff firstTariff = tariffObjects.get(0);
@@ -65,7 +65,7 @@ public class RemoteWebserviceCallTest {
 	@Test
 	public void testGetTariffsEntityFromRemoteServer() throws JsonParseException, URISyntaxException, IOException {
 		mockServer.expect(requestTo(tariffJsonUrl)).andExpect(method(GET))
-				.andRespond(withSuccess(tariffJsonContent, APPLICATION_JSON_UTF8));
+				.andRespond(withSuccess(tariffJsonContent, APPLICATION_JSON));
 
 		List<Tariff> tariffObjects = wsCall.getTariffsEntityFromRemoteServer("h", "v");
 		assertTrue("Calling the WS of a remote server should return some Tariff objects",
@@ -76,9 +76,10 @@ public class RemoteWebserviceCallTest {
 	@Ignore("TODO Find out, how to mock secure RestTemplate with BasicAuth")
 	public void testGetUserDataFromSecuredServer() throws URISyntaxException {
 		mockServerSecure.expect(requestTo(userJsonUrl)).andExpect(method(GET))
-				.andRespond(withSuccess(userJsonContent, APPLICATION_JSON_UTF8));
+				.andRespond(withSuccess(userJsonContent, APPLICATION_JSON));
 
 		List<UserData> userData = wsCall.getUserDataFromSecuredServer(pmn);
-		assertTrue("Calling the WS of the user-service should return some objects", userData != null && !userData.isEmpty());
+		assertTrue("Calling the WS of the user-service should return some objects",
+				userData != null && !userData.isEmpty());
 	}
 }
