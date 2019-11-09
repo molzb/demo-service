@@ -1,6 +1,6 @@
 package com.syniverse.demo.controller.remote;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import java.io.IOException;
 import java.net.URI;
@@ -25,7 +25,8 @@ import lombok.ToString;
 
 @RestController
 public class RemoteWebserviceCall extends BaseController {
-	// private String urlTpl = "http://localhost:8881/tms/v1/hpmnTariffs/%s/%s?usageType=C";
+	// private String urlTpl =
+	// "http://localhost:8881/tms/v1/hpmnTariffs/%s/%s?usageType=C";
 	@Setter
 	@Value("${external.hpmnTariffsUrl}")
 	private String hpmnTariffsUrlTpl;
@@ -37,8 +38,9 @@ public class RemoteWebserviceCall extends BaseController {
 	RestTemplate tpl = new RestTemplate();
 	RestTemplate tplSecure = new RestTemplate();
 
-	@GetMapping(value = "hpmnTariffsForC/{hpmn}/{vpmn}", produces = APPLICATION_JSON_UTF8_VALUE)
-	public String getHpmnTariffsFromRemoteServer(@PathVariable String hpmn, @PathVariable String vpmn) throws URISyntaxException {
+	@GetMapping(value = "hpmnTariffsForC/{hpmn}/{vpmn}", produces = APPLICATION_JSON_VALUE)
+	public String getHpmnTariffsFromRemoteServer(@PathVariable String hpmn, @PathVariable String vpmn)
+			throws URISyntaxException {
 		URI url = new URI(String.format(hpmnTariffsUrlTpl, hpmn, vpmn));
 		return tpl.getForObject(url, String.class);
 	}
