@@ -55,7 +55,7 @@ public class CountryController {
 	// return jdbcTpl.query(sql, (ResultSet rs, int rowNum) -> new Country(rs.getString(1), rs.getString(2)));
 	// }
 
-	@GetMapping(value = "/country/{countryId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping(value = "/country/{countryId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Country getCountry(@PathVariable String countryId) {
 		String sql = "SELECT mdm_country_id, name FROM mdm_countrytbl WHERE mdm_country_id = ?";
 		try {
@@ -68,7 +68,7 @@ public class CountryController {
 		}
 	}
 
-	@GetMapping(value = "/country2/{countryId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@GetMapping(value = "/country2/{countryId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Country getCountry2(@PathVariable String countryId) {
 		String sql = "SELECT mdm_country_id, name FROM mdm_countrytbl WHERE mdm_country_id = ?";
 		Object[] sqlParams = new Object[] { countryId };

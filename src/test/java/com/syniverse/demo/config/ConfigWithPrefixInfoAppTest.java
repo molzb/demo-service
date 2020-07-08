@@ -10,7 +10,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.syniverse.demo.Application;
-import com.syniverse.demo.config.ConfigWithPrefixInfoApp;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
